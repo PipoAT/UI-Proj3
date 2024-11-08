@@ -2,7 +2,7 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
-  export let currentDateOnly, currentRoute
+  export let currentDateOnly, currentRoute, currentDayOfWeek, currentHours
 </script>
 
 <main>
@@ -39,9 +39,9 @@
     <br>
     <h1>Hours of Operation</h1>
     <h2>{currentRoute}</h2>
-    <h3>{currentDateOnly}</h3>
+    <h3>{currentDayOfWeek}, {currentDateOnly}</h3>
     <br>
-    <p>7:00 AM - 10:00 PM</p>
+    <p>{currentHours}</p>
     <br>
   </div>
 </main>
