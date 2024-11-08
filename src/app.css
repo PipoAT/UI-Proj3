@@ -5,12 +5,16 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: black !important;
 }
 
 a {
@@ -40,7 +44,7 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
+  width: 100em;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -68,7 +72,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #000000;
   }
   a:hover {
     color: #747bff;
@@ -76,4 +80,20 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.alert {
+  font-size: 1.5em; /* Adjust the size as needed */
+}
+
+
+#hours {
+  background-color: #E4080A;
+  padding: 1em;
+  border-radius: 20px;
+  color: #f9f9f9;
+}
+
+#hours p {
+  font-size: 24px;
 }

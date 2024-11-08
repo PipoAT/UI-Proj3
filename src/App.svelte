@@ -5,43 +5,25 @@
 </script>
 
 <main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+  <div id="hours">
+    <div class="alert alert-dark d-flex align-items-center justify-content-center" role="alert">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-exclamation-circle me-2" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+      <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+      </svg>
+      <span>This route will not be operating on Monday, November 11, 2024, due to the Veterans Day holiday.</span>
+    </div>
+    <br>
+    <h1>Hours of Operation</h1>
+    <h2>[Shuttle Route]</h2>
+    <br>
+    <p>Monday:  7:00 AM - 10:00 PM</p>
+    <p>Tuesday:  7:00 AM - 10:00 PM</p>
+    <p>Wednesday:  7:00 AM - 10:00 PM</p>
+    <p>Thursday:  7:00 AM - 10:00 PM</p>
+    <p>Friday:  7:00 AM - 10:00 PM</p>
+    <p>Saturday:  8:00 AM - 10:00 PM</p>
+    <p>Sunday:  8:00 AM - 10:00 PM</p>
+    <br>
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
 </main>
-
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
