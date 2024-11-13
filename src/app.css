@@ -30,7 +30,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  max-width: 320px;
   min-height: 100vh;
 }
 
@@ -83,7 +83,7 @@ button:focus-visible {
 }
 
 .alert {
-  font-size: 1.5em; /* Adjust the size as needed */
+  font-size: 1em; /* Adjust the size as needed */
 }
 
 
@@ -95,5 +95,5 @@ button:focus-visible {
 }
 
 #hours p {
-  font-size: 24px;
+  font-size: 20px;
 }
