@@ -8,18 +8,23 @@
   }
   let shuttle1 = new Shuttle ("Campus Express Shuttle 1", 10, 5);
   let shuttle2 = new Shuttle("Campus Express Shuttle 2", 15, 10);
-  let shuttle3 = new Shuttle("CCM Plaza Shuttle 1", 25, 15);
-
+  let shuttle3 = new Shuttle("CCM Plaza Shuttle 1", 20, 15);
+  const root = document.documentElement;
+  const red1 = getComputedStyle(root).getPropertyValue('--red1').trim(); 
+  const dark_background = getComputedStyle(root).getPropertyValue('--dark-background').trim(); 
+  
   function updateCells(rowId, numberOfCells, dummy_eta, shuttleName) {
     const row = document.getElementById(rowId);
+    
     if(row) {
       const cells = row.getElementsByTagName("td");
+      let first_cell_in_row=cells[1];
       let startCell, endCell;
 
       for (let i = dummy_eta; i < dummy_eta + numberOfCells; i++) {
         if(cells[i]) {
-          cells[i].style.backgroundColor = "#d43232";
-          cells[i].style.margin = "1px";
+          cells[i].style.backgroundColor = red1;
+          
 
           if (i == dummy_eta) { 
             cells[i].style.borderTopLeftRadius = "25px";
@@ -37,12 +42,58 @@
       
       if (startCell && endCell) {
         overlayShuttleInfo(startCell, endCell, shuttleName, dummy_eta, rowId);
+        overlayEtaLine(first_cell_in_row, startCell, shuttleName, dummy_eta, rowId) 
+        
       }
+      
     }
+    
   }
+
+  function overlayEtaLine(first_cell_in_row, startCell, shuttleName, eta, rowId) {
+    let firstCellRect = first_cell_in_row.getBoundingClientRect();
+    let lastCellRect = startCell.getBoundingClientRect();
+    let tableContainer = document.querySelector("table");
+    let containerRect = tableContainer.getBoundingClientRect();
+
+    let topPosition = rowId.offsetTop;
+    let leftPosition = firstCellRect.left - containerRect.left;
+    let width = lastCellRect.right - firstCellRect.left;
+    
+    let rowEtaLine = document.getElementById(`eta-line-${rowId}`);
+    if (!rowEtaLine) {
+        rowEtaLine = document.createElement("div");
+        rowEtaLine.id = `eta-line-${rowId}`;
+       rowEtaLine.style.position = "absolute";
+        rowEtaLine.style.height = "2px";
+        rowEtaLine.style.backgroundColor = "white";
+        tableContainer.appendChild(rowEtaLine);
+    }
+
+    rowEtaLine.style.top = `${topPosition}px`;
+    rowEtaLine.style.left = `${leftPosition}px`;
+    rowEtaLine.style.width = `${width}px`;
+    rowEtaLine.style.paddingLeft = `${0}px`;
+    rowEtaLine.style.paddingRight = `${5}px`;
+    let rowEtaText = document.getElementById(`eta-text-${rowId}`);
+    if (!rowEtaText) {
+        rowEtaText = document.createElement("div");
+        rowEtaText.id = `eta-text-${rowId}`;
+        rowEtaText.style.position = "absolute";
+        rowEtaText.style.color = "white";
+        rowEtaText.style.fontSize = "14px";
+        tableContainer.appendChild(rowEtaText);
+    }
+
+    rowEtaText.style.top = `${topPosition}px`;
+    rowEtaText.style.left = `${leftPosition}px`;
+    rowEtaText.textContent = `Arriving in ${eta} min`;
+   
+}
 
   function overlayShuttleInfo(startCell, endCell, shuttleName, eta, rowId) {
     console.log(rowId)
+    let topPosition = rowId.offsetTop;
     let overlay;
     if (rowId=='s1'){
       overlay = document.getElementById('overlay1');
@@ -53,19 +104,22 @@
     if (rowId=='s3'){
       overlay = document.getElementById('overlay3');
     }
-    let startRect = startCell.getBoundingClientRect();
-    let endRect = endCell.getBoundingClientRect();
+    // Calculate overlay position and dimensions
+let startRect = startCell.getBoundingClientRect();
+let endRect = endCell.getBoundingClientRect();
+let magnitude = endRect.right - startRect.left;
 
-    overlay.style.display = 'block';  //  overlay visible
-    overlay.style.position = 'absolute';
-    // @ts-ignore
-    overlay.style.zIndex = 9999; //  overlay  on top of other elements
+//overlay.style.backgroundColor = `${dark_background}`;
 
-    overlay.style.top = `${startRect.top + window.scrollY}px`; 
-    overlay.style.left = `${startRect.left + window.scrollX}px`; 
-    overlay.style.width = `${endRect.right - startRect.left}px`; 
-    overlay.style.height = `${startRect.height}px`;
-    overlay.textContent = `${shuttleName} departs in ${eta} minutes`;
+overlay.style.top = `${topPosition-20}px`;
+overlay.style.left = `${(startRect.left-15) + window.scrollX+10}px`;
+overlay.style.width = `${magnitude}px`;
+overlay.style.height = `${startRect.height}px`;
+
+
+overlay.textContent = `${shuttleName}`;
+
+
   }
 
 
@@ -74,7 +128,7 @@
     const selectedTime = timeInput.value;
     console.log(selectedTime);
     const [hours, minutes] = selectedTime.split(':').map(Number);
-    shuttle1.dummy_eta = ((minutes*2))%10;
+    shuttle1.dummy_eta = (((minutes*2)%11)+5);
     shuttle2.dummy_eta = (shuttle1.dummy_eta +5) % 60;
     shuttle3.dummy_eta = (shuttle1.dummy_eta +10) % 60; 
     time_bar(hours, minutes)
@@ -105,15 +159,15 @@
       const formattedHour = hr.toString().padStart(2, '');
       const formattedMinute = min.toString().padStart(2, '0');
       td.textContent = `${formattedHour}:${formattedMinute}`;
-
-      if (parseInt(formattedMinute, 10) % 5 === 0 || formattedMinute==current_minute) {
+      //|| formattedMinute==current_minute
+      if (parseInt(formattedMinute, 10) % 5 === 0 ) {
         td.style.fontSize = "1.2em";
-        td.style.color = "black";
-        td.style.paddingRight= "5px";
+        td.style.color = "white";
+       // td.style.paddingRight= "5px";
         //td.style.textAlign = "center";
       } else {
         td.style.fontSize = "0.0000001em";
-        td.style.color = "white";
+        td.style.color = "dark_background";
       }
       minutesRow.appendChild(td);
       min = (min + 1) % 60;
@@ -147,93 +201,111 @@
 </script>
 
 <div class="container">
-  <label for="timeInput">Depart at:</label>
+  <label for="timeInput">Departing at:</label>
   <input type="time" id="timeInput">
   <button on:click={getTime}>Ok</button> 
   
   <p id="displayTime"></p>
 
   <table id = "time_table">
+    
     <thead>
       <tr id="minutes"></tr> 
     </thead>
+    
     <tbody>
+      <div id="overlay1" class="overlay1"></div> 
+      <div id="eta-text-s1" class="eta-text-s1"></div> 
+      <div id="eta-line-s1" class="eta-line-s1"></div> 
       <tr id="s1" class="shuttle-row">
         <td></td>
       </tr>
+      <div id="overlay2" class="overlay2"></div> 
+      <div id="eta-text-s2" class="eta-text-s2"></div> 
+      <div id="eta-line-s2" class="eta-line-s2"></div> 
       <tr id="s2" class="shuttle-row">
         <td ></td>
       </tr>
+      <div id="overlay3" class="overlay3"></div>  
+      <div id="eta-text-s3" class="eta-text-s3"></div> 
+      <div id="eta-line-s3" class="eta-line-s3"></div>  
       <tr id="s3" class="shuttle-row">
         <td></td>
       </tr>
       
     </tbody>
-   
+
   </table>
-  <div id="overlay1" class="overlay1"></div> 
-  <div id="overlay2" class="overlay2"></div> 
-  <div id="overlay3" class="overlay3"></div>  
+
 </div>
 
 
 
 <style>
+  @import "../app.css";
   .container {
-    
+    padding:20px;
+    color:white;
     max-width: 100%;
     overflow-x: auto;
-    
+    position: relative;
   }
 
   table {
-    border-collapse: separate;
+    color: var(--dark-background);
+    
     border-spacing: 0 5px;
     width: 100%;
     margin:10px;
-  }
-
-  td { 
-    color:  rgba(0, 0, 0,0);
-    margin: 100px;
     
   }
 
   .shuttle-row {
     height: 100px;
-    color: white;
+    background-color: var(--transparent);
+     border-collapse: separate;
   }
-  .overlay1 {
-    position: absolute;
-    padding-top: 25px;
-    background-color: rgba(0, 0, 0, 0); 
-    color: white;
-    pointer-events: none; 
-    display: grid; 
-    text-align: center;
+  .overlay1,
+  .overlay2,
+  .overlay3 {
+    justify-content: center;
+    font-size: 1.2em;
+    margin:0px;
     display: flex;
-  align-items: center;
-  }
-  .overlay2 {
     position: absolute;
-    padding-top: 25px;
-    background-color: rgba(0, 0, 0, 0); 
-    pointer-events: none; 
-    display: flex;
+    background-color: var(--red1);
+    border-radius: 25px;
     color: white;
-    text-align: center;
-    align-items: center;
+    align-items: center; /* vertical center */
+
   }
 
-  .overlay3 {
+
+.eta-line-s1,
+.eta-line-s2,
+.eta-line-s3 {
+  margin-top: 50px;
+    
     position: absolute;
-    padding-top: 25px;
-    background-color: rgba(0, 0, 0, 0); /* transparent red overlay */
-    pointer-events: none; /* Allows clicks to pass through */
-    color: white;
+    padding: 2px; /** the heigth of the bar*/
+    background-color: white;
+    color: rgb(166, 35, 135);
+    pointer-events: none;
     display: flex;
-    text-align: center;
     align-items: center;
-  }
+    text-align: center;
+    padding-right: 0px;
+}
+
+.eta-text-s1,
+.eta-text-s2,
+.eta-text-s3 {
+  margin-top: 30px;
+    position: absolute;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+
 
 </style>
