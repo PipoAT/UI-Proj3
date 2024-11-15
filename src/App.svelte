@@ -1,47 +1,81 @@
-<script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+
+
+<body class="base"> 
+<div class="eta-container">
+  <!-- svelte-ignore a11y-img-redundant-alt -->
+  <img src="./src/assets/fig2.png" alt="Description of the image" style="width: 28px; height: auto; margin-right: 10px;">
+  <div class="text-area">
+    <div class="text-box-border-container" > 
+      <input type="text" class="location-textbox" id="textbox" name="textbox" placeholder="Current location" >
+    </div>
+
+    <div class="text-box-border-container second-textbox"> 
+      <input type="text" class="location-textbox" id="textbox" name="textbox" placeholder="Campus Green Garage">
+    </div>
+  </div>
+</div>
+
+<!---------------------------------------------------------->
+<div id="buttonstuff"> 
+<script defer>
+  function showPopup() {
+    document.querySelector('.popup').style.display = 'block';
+    document.querySelector('.overlay').style.display = 'block';
+
+
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = Math.ceil(now.getMinutes() / 15) * 15;
+    const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+
+    document.getElementById('timeDisplay').textContent = `Current Time: ${formattedTime}`;
+
+  }
+  function hidePopup() {
+    document.querySelector('.popup').style.display = 'none';
+    document.querySelector('.overlay').style.display = 'none';
+  }
+
+
+  function submitTime() {
+
+      const selectedTime = document.getElementById('start-time').value;
+
+      const timetable = document.getElementById('timetable');
+      if (timetable && typeof timetable.setTime === 'function') {
+        timetable.setTime(selectedTime); 
+      } else {
+        console.log('Selected Time:', selectedTime); 
+      }
+
+      hidePopup();
+    }
 </script>
 
-<main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+<div class="overlay" onclick="hidePopup()"></div>
+<div class="popup">
+  <h2>Set time to depart</h2>
+  <div class="time-selector">
+    <label for="start-time"></label>
+    <input type="time" id="start-time">
   </div>
-  <h1>Vite + Svelte</h1>
+  <button onclick="submitTime()">Ok</button>
+</div>
 
-  <div class="card">
-    <Counter />
-  </div>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
 
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
-</main>
+<!-- TimeTable Component -->
+<TimeTable ></TimeTable>
 
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
+</body>
+
+
+
+
+<script>
+    import TimeTable from "./lib/TimeTable.svelte";
+
+
+  
+</script>
