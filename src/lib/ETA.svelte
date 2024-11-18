@@ -11,7 +11,7 @@
   <div class="eta-container">
     <!-- svelte-ignore a11y-img-redundant-alt -->
     <img
-      src="./src/assets/fig2.png"
+      src="/fig2.png"
       alt="Description of the image"
       style="width: 28px; height: auto; margin-right: 10px;"
     />

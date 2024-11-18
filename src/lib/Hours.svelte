@@ -75,10 +75,6 @@
     color: #f9f9f9;
   }
 
-  #hours h2 {
-    font-size: 2vw; /* Responsive font size based on screen width */
-  }
-
   #hours h3 {
     font-size: 2vw; /* Responsive font size based on screen width */
     margin-top: 0.01em;
@@ -92,46 +88,6 @@
   #hours p {
     font-size: 2vw; /* Responsive font size based on screen width */
     margin-top: 0.01em;
-  }
-
-  /* Body and global styles for this component */
-  body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    max-width: 320px;
-    min-height: 30vh;
-  }
-
-  a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-
-  a:hover {
-    color: #535bf2;
-  }
-
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.1em 0.1em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-
-  button:hover {
-    border-color: #646cff;
-  }
-
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
   }
 
   @media (prefers-color-scheme: light) {
