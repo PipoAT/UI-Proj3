@@ -14,7 +14,6 @@
 }
 
 main {
-  background-color: #E4080A !important;
   margin: 0;
   display: flex; /* Set up flexbox for the containers */
   
@@ -60,7 +59,6 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #E4080A;
   }
   a:hover {
     color: #747bff;
@@ -75,7 +73,6 @@ button:focus-visible {
 }
 
 #hours {
-  background-color: #E4080A;
   padding: 1em;
   border-radius: 20px;
   color: #f9f9f9;
