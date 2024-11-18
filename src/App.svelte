@@ -8,6 +8,8 @@
 
 
 <script>
+// @ts-nocheck
+
   import ETA from "./lib/ETA.svelte"
   
 </script>

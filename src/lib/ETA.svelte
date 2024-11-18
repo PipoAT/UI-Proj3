@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
     <body class="base"> 
     <div class="eta-container">
@@ -86,3 +87,63 @@ body{
 
 
     </style>
+=======
+<script>
+// @ts-nocheck
+function parentFunction(message) {
+    console.log("Message from child:", message);
+  }
+  import { onMount } from 'svelte';
+  import TimeTable from './TimeTable.svelte';
+  import SearchPage from './SearchTab.svelte';
+    import SearchTab from './SearchTab.svelte';
+  //export let departure = ''; // Receive the departure prop
+  //export let destination = ''; // Receive the destination prop
+
+</script>
+
+<!-- Main Body -->
+<div> 
+    <div class="eta-container">
+    <!-- svelte-ignore a11y-img-redundant-alt -->
+    <!-- <img
+      src="./src/assets/fig2.png"
+      alt="Description of the image"
+      style="width: 28px; height: auto; margin-right: 10px;"
+    /> -->
+    <div class="text-area">
+      <SearchTab> </SearchTab>
+        <TimeTable onCallParent={parentFunction} > </TimeTable>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+
+
+  .eta-container {
+    border-collapse: separate;
+    background-color: #d43232; 
+    padding: 20px; 
+    color: white; 
+    display: flex; 
+    align-items: flex-start; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 20px; 
+    position: relative;
+  }
+
+  .text-area {
+    width: 100%;
+    border-collapse: separate;
+    position: relative;
+   
+  }
+
+  
+</style>
+>>>>>>> Stashed changes
