@@ -75,16 +75,8 @@
     color: #f9f9f9;
   }
 
-  #hours h3 {
-    font-size: 2vw; /* Responsive font size based on screen width */
-    margin-top: 0.01em;
-  }
-
-  #hours h4 {
-    font-size: 2vw; /* Responsive font size based on screen width */
-    margin-top: 0.01em;
-  }
-
+  #hours h3,
+  #hours h4,
   #hours p {
     font-size: 2vw; /* Responsive font size based on screen width */
     margin-top: 0.01em;

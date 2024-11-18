@@ -39,18 +39,10 @@ h1 {
   }
 }
 
-.alert {
-  font-size: 1em; /* Adjust the size as needed */
-}
-
 #hours {
   padding: 1em;
   border-radius: 20px;
   color: #f9f9f9;
-}
-
-#hours p {
-  font-size: 20px;
 }
 
 /* Layout styling */
