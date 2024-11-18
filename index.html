@@ -5,33 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UC Shuttle Tracker Redesign</title>
-    <style>
-      #map {
-        height: 100vh;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
-      #app {
-        position: relative;
-        z-index: 1;
-      }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd5reE6kk3a-h6IecUZSPNeXPcM5XOSgQ&callback=initMap" async defer></script>
-    <script>
-      function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 39.1031, lng: -84.5120 },
-        zoom: 12
-      });
-      }
-    </script>
   </head>
   <body>
-    <div id="map"></div>
+    
     <div id="app"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfADU3lbR7Z_8wUdPrzzXwV3cHEIFRKww&callback=initMap&v=weekly&libraries=marker" async></script>
     <script type="module" src="/src/main.js"></script>
+    
   </body>
 </html>

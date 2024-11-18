@@ -1,5 +1,11 @@
 import { writable } from 'svelte/store';
 
+export const mapData = writable({
+  markers: [],
+  center: { lat: 39.132818154690355, lng: -84.51515178545588 },
+  zoom: 15,
+});
+
 export const busStops = writable([
   {
     id: "1",

@@ -13,8 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+main {
   background-color: #E4080A !important;
+  margin: 0;
+  display: flex; /* Set up flexbox for the containers */
+  
 }
 
 a {
@@ -26,14 +29,6 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  max-width: 320px;
-  min-height: 100vh;
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -41,13 +36,6 @@ h1 {
 
 .card {
   padding: 2em;
-}
-
-#app {
-  width: 100em;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 button {
@@ -86,7 +74,6 @@ button:focus-visible {
   font-size: 1em; /* Adjust the size as needed */
 }
 
-
 #hours {
   background-color: #E4080A;
   padding: 1em;
@@ -97,3 +84,25 @@ button:focus-visible {
 #hours p {
   font-size: 20px;
 }
+
+/* Layout styling */
+.container-left {
+  flex: 2; /* 1 part out of 4 */
+  background-color: #1a1a1a; /* Example color for the left container */
+  padding: 1em;
+  color: #ffffff;
+  overflow: hidden; /* Prevent overflow */
+  max-width: 100%; /* Ensure it stays within parent width */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+.container-right {
+  flex: 5; /* 3 parts out of 4 */
+  background-color: #ffffff; /* Example color for the right container */
+  padding: 1em;
+  color: #000000;
+  overflow: hidden; /* Prevent overflow */
+  max-width: 100%; /* Ensure it stays within parent width */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
