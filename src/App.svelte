@@ -10,15 +10,11 @@
 
 <main>
 <div class="container-left">
-  <h2>Left Side Content</h2>
-  <p>This is some content for the left container.</p>
   <Hours />
   <ETA></ETA>
 </div>
 <div class="container-right">
-  <h1>Right Container</h1>
   <Map />
-  <p>This is the right container, which takes up the remaining three-fourths of the screen width.</p>
 </div>
 </main>
  <!--- <Hours /> --->
