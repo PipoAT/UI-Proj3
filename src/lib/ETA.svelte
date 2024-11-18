@@ -4,6 +4,7 @@
   import SearchPage from './SearchTab.svelte';
   export let departure = ''; // Receive the departure prop
   export let destination = ''; // Receive the destination prop
+  export let markers;
 </script>
 
 <!-- Main Body -->
@@ -16,7 +17,7 @@
       style="width: 28px; height: auto; margin-right: 10px;"
     />
     <div class="text-area">
-      <SearchPage />
+      <SearchPage bind:markers={markers} />
     </div>
   </div>
 

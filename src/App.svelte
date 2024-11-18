@@ -4,14 +4,20 @@
   import Map from './lib/Map.svelte';
   import BusRouteFinder from  './lib/SearchTab.svelte';
 
+  let markers = [];
+
+  function handleMarkerChange(event) {
+    markers = event.detail;
+  }
+
 </script>
 
 <main>
 <div class="container-left">
   <Hours />
-  <ETA></ETA>
+  <ETA bind:markers={markers}></ETA>
 </div>
 <div class="container-right">
-  <Map />
+  <Map {markers} />
 </div>
 </main>
