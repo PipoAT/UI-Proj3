@@ -1,3 +1,4 @@
+
 <script>
   import { onMount } from "svelte";
   import { busStops } from "./stores.js"; // Import busStops store
@@ -17,7 +18,7 @@
   let selectedBusStopDeparture = { ...defaultBusStop };
   let selectedBusStopDestination = { ...defaultBusStop };
   let alertString = ""; // Displays the calculated route
-  let markers = []; // Array of markers to display on the map
+  export let markers; // Array of markers to display on the map
 
   // Subscribe to `busStops` store and update data on mount
   onMount(() => {

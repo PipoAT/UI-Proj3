@@ -4,6 +4,7 @@
   import SearchPage from './SearchTab.svelte';
   export let departure = ''; // Receive the departure prop
   export let destination = ''; // Receive the destination prop
+  export let markers;
 </script>
 
 <!-- Main Body -->
@@ -11,12 +12,12 @@
   <div class="eta-container">
     <!-- svelte-ignore a11y-img-redundant-alt -->
     <img
-      src="./src/assets/fig2.png"
+      src="/fig2.png"
       alt="Description of the image"
       style="width: 28px; height: auto; margin-right: 10px;"
     />
     <div class="text-area">
-      <SearchPage />
+      <SearchPage bind:markers={markers} />
     </div>
   </div>
 

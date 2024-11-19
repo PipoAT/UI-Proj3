@@ -4,32 +4,20 @@
   import Map from './lib/Map.svelte';
   import BusRouteFinder from  './lib/SearchTab.svelte';
 
+  let markers = [];
+
+  function handleMarkerChange(event) {
+    markers = event.detail;
+  }
+
 </script>
-
-
 
 <main>
 <div class="container-left">
-  <h2>Left Side Content</h2>
-  <p>This is some content for the left container.</p>
   <Hours />
-  <ETA></ETA>
+  <ETA bind:markers={markers}></ETA>
 </div>
 <div class="container-right">
-  <h1>Right Container</h1>
-  <Map />
-  <p>This is the right container, which takes up the remaining three-fourths of the screen width.</p>
+  <Map {markers} />
 </div>
 </main>
- <!--- <Hours /> --->
- <!--- <Map/> --->
-
-
-<!---
-<iframe src="https://storage.googleapis.com/maps-solutions-ybzdk0pdcx/locator-plus/tyos/locator-plus.html"
-  width="100%" height="100%"
-  style="border:0;"
-  loading="lazy">
-</iframe>
---->
-  <!---<ETA></ETA>--->
