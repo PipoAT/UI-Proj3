@@ -47,7 +47,7 @@ h1 {
 
 /* Layout styling */
 .container-left {
-  flex: 2; /* 1 part out of 4 */
+  flex: 4; /* 1 part out of 4 */
   background-color: #1a1a1a; /* Example color for the left container */
   padding: 1em;
   color: #ffffff;
@@ -57,7 +57,7 @@ h1 {
 }
 
 .container-right {
-  flex: 5; /* 3 parts out of 4 */
+  flex: 6; /* 3 parts out of 4 */
   background-color: #ffffff; /* Example color for the right container */
   padding: 1em;
   color: #000000;

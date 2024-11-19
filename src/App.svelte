@@ -1,11 +1,3 @@
-<!-- Our main App Page -->
-<div> 
-<ETA></ETA>
-
-
-</div>
-
-
 
 <script>
   import ETA from "./lib/ETA.svelte"
@@ -24,7 +16,7 @@
 <main>
 <div class="container-left">
   <Hours />
-  <ETA bind:markers={markers}></ETA>
+ \<ETA bind:markers={markers}></ETA> 
 </div>
 <div class="container-right">
   <Map {markers} />
