@@ -10,6 +10,7 @@
       import SearchTab from './SearchTab.svelte';
     export let departure = ''; // Receive the departure prop
     export let destination = ''; // Receive the destination prop
+    export let markers;
   
   </script>
 
