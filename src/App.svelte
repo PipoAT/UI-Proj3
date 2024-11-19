@@ -16,7 +16,6 @@
 <main>
 <div class="container-left">
   <Hours />
- dylan-dev
   <ETA bind:markers={markers}></ETA>
 
 </div>

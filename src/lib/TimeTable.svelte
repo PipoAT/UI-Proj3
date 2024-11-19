@@ -290,6 +290,7 @@
     } */
     label {
       padding:10px;
+      font-size: 24px;
     }
   
     .time_container{
@@ -357,8 +358,27 @@
       color: white;
       text-align: center;
   }
-  
 
+  button {
+    background-color: #c3c3c3;
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 15px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #9d9d9d;  /* Light blue on hover */
+  }
+  
+  input {
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 15px 30px;
+    margin-top: 20px;
+  }
   
   </style>
   

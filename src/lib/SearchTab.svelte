@@ -122,9 +122,9 @@
     <button on:click={calculateOptimalRoute}>Search</button>
   </div>
 
-  <div class="routeData">
+  <!--<div class="routeData">
     <h2>{alertString}</h2>
-  </div>
+  </div>-->
 
   <!-- Map component -->
   <!--<Map {markers} zoom={15} center={markers.length > 0 ? markers[0].position : { lat: 39.132818, lng: -84.515151 }} /> -->
@@ -191,7 +191,7 @@
 
   /* Button styles */
   button {
-    background-color: lightblue;
+    background-color: #c3c3c3;
     font-size: 20px;
     border-radius: 30px;
     padding: 15px 30px;
@@ -201,7 +201,7 @@
   }
 
   button:hover {
-    background-color: #3a94d3;  /* Light blue on hover */
+    background-color: #9d9d9d;  /* Light blue on hover */
   }
 
   /* Styling for datalist options */

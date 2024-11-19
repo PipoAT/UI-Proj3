@@ -57,7 +57,7 @@
             label: (index + 1).toString() // Adding numbers to markers
           });
 
-          const infoWindowContent = `<h3>${title}</h3><p>Campus Express Bus 1: ${getRandomTime()} minutes</p><p>Campus Express Bus 2: ${getRandomTime()} minutes</p>`; const infoWindow = new google.maps.InfoWindow({ content: infoWindowContent });
+          const infoWindowContent = `<h3>${title}</h3><p>Campus Express Shuttle 1: ${getRandomTime()} minutes</p><p>Campus Express Shuttle 2: ${getRandomTime()} minutes</p>`; const infoWindow = new google.maps.InfoWindow({ content: infoWindowContent });
           
           marker.addListener('click', () => {
             infoWindow.open(map, marker);
@@ -143,14 +143,14 @@ function addBusMarkers(directionsResult, markerObjects) {
     map: map,
     //icon: 'http://maps.google.com/mapfiles/ms/icons/bus.png',
     icon: { url: createRedBusIcon()},
-    title: 'Campus Express Bus 1'
+    title: 'Campus Express Shuttle 1'
   });
 
   const busMarker2 = new google.maps.Marker({
     position: route[Math.floor(2 * route.length / 3)],
     map: map,
     icon: { url: createRedBusIcon()},
-    title: 'Campus Express Bus 2'
+    title: 'Campus Express Shuttle 2'
   });
 
   // InfoWindows to display the bus name and the title of the next marker

@@ -18,7 +18,7 @@
   };
 
   let currentHours = testData[currentDayOfWeek] || ["Closed"];
-  let currentRoute = "UC Blue Ash Shuttle";
+  let currentRoute = "UC Campus Express Shuttle";
 </script>
 
 <main>
@@ -70,7 +70,7 @@
 
   #hours {
     background-color: #8a2828;
-    padding: .1em;
+    padding: .5em;
     border-radius: 20px;
     color: #f9f9f9;
   }
@@ -78,7 +78,7 @@
   #hours h3,
   #hours h4,
   #hours p {
-    font-size: 2vw; /* Responsive font size based on screen width */
+    font-size: 1.5vw; /* Responsive font size based on screen width */
     margin-top: 0.01em;
   }
 

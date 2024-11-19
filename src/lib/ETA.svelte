@@ -20,15 +20,6 @@
       <!-- <img src="./src/assets/fig2.png" alt="Description of the image" style="width: 28px; height: auto; margin-right: 10px;"> -->
       <div class="text-area">
         <SearchPage bind:markers={markers} />
-        <div class="text-box-border-container" > 
-          <input type="text" class="location-textbox" id="textbox" name="textbox" placeholder="Current location" >
-        </div>
-    
-        <div class="text-box-border-container second-textbox"> 
-          <input type="text" class="location-textbox" id="textbox" name="textbox" placeholder="Campus Green Garage">
-          <SearchTab> </SearchTab>
-          
-        </div>
         <TimeTable onCallParent={parentFunction} > </TimeTable>
         
       </div>
