@@ -18,7 +18,7 @@
   };
 
   let currentHours = testData[currentDayOfWeek] || ["Closed"];
-  let currentRoute = "UC Blue Ash";
+  let currentRoute = "UC Blue Ash Shuttle";
 </script>
 
 <main>
@@ -28,8 +28,6 @@
         This route will not be operating on Monday, November 11, 2024, due to the Veterans Day holiday.
       </span>
     </div>
-    <br>
-    <h2>Hours of Operation</h2>
     <br>
     <h3>{currentRoute}</h3>
     <br>
@@ -58,7 +56,7 @@
     margin: auto;
     padding: 1em;
     text-align: center;
-    background-color: #d43232;
+    background-color: #8a2828;
     border-radius: 10px;
   }
 
@@ -71,70 +69,17 @@
   }
 
   #hours {
-    background-color: #d43232;
+    background-color: #8a2828;
     padding: .1em;
     border-radius: 20px;
     color: #f9f9f9;
   }
 
-  #hours h2 {
-    font-size: 2vw; /* Responsive font size based on screen width */
-  }
-
-  #hours h3 {
-    font-size: 2vw; /* Responsive font size based on screen width */
-    margin-top: 0.01em;
-  }
-
-  #hours h4 {
-    font-size: 2vw; /* Responsive font size based on screen width */
-    margin-top: 0.01em;
-  }
-
+  #hours h3,
+  #hours h4,
   #hours p {
-    font-size: 4vw; /* Responsive font size based on screen width */
+    font-size: 2vw; /* Responsive font size based on screen width */
     margin-top: 0.01em;
-  }
-
-  /* Body and global styles for this component */
-  body {
-    background-color: #d43232 !important;
-    margin: 0;
-    display: flex;
-    place-items: center;
-    max-width: 320px;
-    min-height: 30vh;
-  }
-
-  a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-
-  a:hover {
-    color: #535bf2;
-  }
-
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.1em 0.1em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-
-  button:hover {
-    border-color: #646cff;
-  }
-
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
   }
 
   @media (prefers-color-scheme: light) {
@@ -144,10 +89,6 @@
     }
     .alert {
       background-color: #213547;
-      color: #E4080A;
-    }
-    #hours {
-      background-color: #E4080A;
     }
   }
 </style>
