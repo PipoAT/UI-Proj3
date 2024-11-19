@@ -1,6 +1,4 @@
 <script>
-// @ts-nocheck
-
   import { onMount } from "svelte";
   import { busStops } from "./stores.js"; // Import busStops store
   import Map from './Map.svelte'; // Import Map component
@@ -19,7 +17,7 @@
   let selectedBusStopDeparture = { ...defaultBusStop };
   let selectedBusStopDestination = { ...defaultBusStop };
   let alertString = ""; // Displays the calculated route
-  let markers = []; // Array of markers to display on the map
+  export let markers; // Array of markers to display on the map
 
   // Subscribe to `busStops` store and update data on mount
   onMount(() => {
@@ -89,7 +87,6 @@
   <h1>Find Route</h1>
   <div class="inputData">
     <div class="input-box">
-      <!-- svelte-ignore a11y-label-has-associated-control -->
       <label>Departing From:</label>
       <input 
         list="busStops" 
@@ -106,7 +103,6 @@
     </div>
 
     <div class="input-box">
-      <!-- svelte-ignore a11y-label-has-associated-control -->
       <label>Destination:</label>
       <input 
         list="busStops" 
@@ -143,7 +139,6 @@
     flex-direction: column;  /* Arrange inputs vertically */
     align-items: center;
     justify-content: flex-start;
-    
   }
 
   /* Heading */
