@@ -111,6 +111,7 @@ function parentFunction(message) {
       alt="Description of the image"
       style="width: 28px; height: auto; margin-right: 10px;"
     /> -->
+    /> -->
     <div class="text-area">
       <SearchTab> </SearchTab>
         <TimeTable onCallParent={parentFunction} > </TimeTable>
@@ -125,6 +126,16 @@ function parentFunction(message) {
 
 
   .eta-container {
+    border-collapse: separate;
+    background-color: #d43232; 
+    padding: 20px; 
+    color: white; 
+    display: flex; 
+    align-items: flex-start; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 20px; 
+    position: relative;
     border-collapse: separate;
     background-color: #d43232; 
     padding: 20px; 
