@@ -1,5 +1,4 @@
 
-
 <script>
   // @ts-nocheck
   function parentFunction(message) {
@@ -9,8 +8,9 @@
     import TimeTable from './TimeTable.svelte';
     import SearchPage from './SearchTab.svelte';
       import SearchTab from './SearchTab.svelte';
-    //export let departure = ''; // Receive the departure prop
-    //export let destination = ''; // Receive the destination prop
+    export let departure = ''; // Receive the departure prop
+    export let destination = ''; // Receive the destination prop
+    export let markers;
   
   </script>
 
@@ -19,6 +19,7 @@
       <!-- svelte-ignore a11y-img-redundant-alt -->
       <!-- <img src="./src/assets/fig2.png" alt="Description of the image" style="width: 28px; height: auto; margin-right: 10px;"> -->
       <div class="text-area">
+        <SearchPage bind:markers={markers} />
         <div class="text-box-border-container" > 
           <input type="text" class="location-textbox" id="textbox" name="textbox" placeholder="Current location" >
         </div>
@@ -29,7 +30,9 @@
           
         </div>
         <TimeTable onCallParent={parentFunction} > </TimeTable>
+        
       </div>
+
     </div>
     
 
@@ -99,4 +102,5 @@
 
    
   }
-   </style>
+</style>
+
