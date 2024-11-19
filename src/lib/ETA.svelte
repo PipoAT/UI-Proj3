@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 
     <body class="base"> 
     <div class="eta-container">
@@ -143,7 +143,3 @@ function parentFunction(message) {
     position: relative;
    
   }
-
-  
-</style>
->>>>>>> Stashed changes
